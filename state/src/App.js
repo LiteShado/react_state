@@ -1,10 +1,12 @@
 import './App.css';
 import { useState } from 'react'
 
+import ColorChanger from './components/ColorChanger';
+import Counter from './components/Counter';
+
 function App() {
-    const [number, setNumber] = useState(0)
-    const [color, setColor] = useState('red')
     const [showing, setShowing] = useState('color-changing')
+    const [number, setNumber] = useState(0)
 
   return (
 
@@ -18,31 +20,13 @@ function App() {
       </nav>
 
     { showing ==='colorchanger' ?
-
-    <div>
-      <div className= {`box ${color}`}/>
-      <div className="buttons-Container">
-      <button onClick={() => { setColor('red')}}>Red</button>
-      <button onClick={() => { setColor('blue')}}>Blue</button>
-      <button onClick={() => { setColor('green')}}>Green</button>
-      </div>
-    </div>
-
+      <ColorChanger />
     : null
     }
 
     { showing ==='counter' ?
-      <div>
-        <div className= {`box ${number}`}/>
-        <div className="buttons-Container">
-        <div>{number}</div>
-        <button onClick={() => { setNumber(number + 1) }}>+</button>
-        <button onClick={() => { setNumber(number - 1) }}>-</button>
-        </div>
-      </div>
-
+      <Counter />
       : null
-
     }
 
     </div>
